@@ -1,0 +1,47 @@
+---
+title: "Demostration of Central Limited Theorem by a ShinyApp"
+author: "Howard Tsang"
+date: "May 28, 2017"
+output: slidy_presentation
+---
+
+## Demostration of Central Limited Theorem
+
+- This ShinyApp illustrate how the distribution of sample means becomes Gaussian with increasing sample size (n). 
+
+- The arithmetic mean of a sufficiently large number of iterates of independent random variables, each with a well-defined (finite) expected value and finite variance, will be approximately normally distributed, regardless of the underlying distribution.
+
+- URL : https://hytsang.shinyapps.io/cltdemo/
+
+
+## User can choose from 4 population distributions
+
+- Normal Distribution, Uniform Distribution, Log-normal Distribution or Exponential Distribution
+
+```{r}
+par(mfrow=c(2,2),mar=c(4,6,4,1), font.main=1) 
+curve(dnorm(x,0,1),xlim=c(-3,3),main='Normal Distribution')
+curve(dunif(x,0,1,log = FALSE),xlim=c(0,1),main='Uniform Distribution')
+curve(dlnorm(x, meanlog = 0, sdlog = 1, log = FALSE),xlim=c(0,4),main='Log-normal Distribution')
+curve(dexp(x, rate = 1, log = FALSE),xlim=c(0,4),main='Exponential Distribution')
+```
+
+## Size of sample (n) & Number of repetition
+
+- User can set the sample of sample we draw randomly from the population.
+- Range from 1 to 1000 samples.
+- Larger the size of sample, lower the standard deviation of the sample means. 
+
+- User can also set the number of time this sample drawing will be repeated.
+- Range from 1 to 1000 times of repetition of sample drawing.
+- Each sample drawing will generate one sample mean. 
+
+## Illustrated each sample means one by one
+
+- User can choose to add sample mean one at a time.
+- Easier to observe the gradual formation of normal distribution ("bell curve") of sample means. 
+
+## Summary
+
+- The ShinyApp illustrates the meaning of the theorem, we draw sample that contain a large number of observations (n), each observation being randomly generated in a way that does not depend on the values of the other observations, and that the arithmetic average of each sampling is computed. If this procedure is performed many times, the central limit theorem says that the computed values of the average will be distributed according to the normal distribution (commonly known as a "bell curve"). 
+
